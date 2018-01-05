@@ -1,6 +1,0 @@
-2018/01/03	10:00 - 15:00	trying out urban classification example, deploying hands annotation on a cloud
-2018/01/03	17:00 - 20:00	playing with urban classification example, going through Tensorflow tutorials
-2018/01/04	11:00 - 15:00	deploying app to google cloud, splitting videos in 3 sec blocks
-2018/01/04	17:00 - 20:30	starting app on a  google cloud, splitting videos in 3 sec blocks and setting file names
-2018/01/05	10:30 - 13:00	setting file names, playing with neural network, starting to set up a whole pipeline
-2018/01/05	17:00 - 20:00	setting up a whole pipeline, preparing README.md
