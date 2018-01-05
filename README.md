@@ -9,7 +9,7 @@ This app requires Python 3 and [FFmpeg](https://www.ffmpeg.org/) to run.
 Install the requirements and start `main.sh`.
 
 ```sh
-$ cd soundEventDetection
+$ cd sound-event-detection
 $ pip install -r requirements.txt
 $ ./main.sh path-to-mp4video
 ```
