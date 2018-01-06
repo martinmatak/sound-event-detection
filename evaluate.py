@@ -40,8 +40,8 @@ if __name__ == "__main__":
     n_dim = features.shape[1]
 
     n_classes = 2
-    n_hidden_units_one = 280
-    n_hidden_units_two = 300
+    n_hidden_units_one = 380
+    n_hidden_units_two = 400
     sd = 1 / np.sqrt(n_dim)
 
     # initializing weights
