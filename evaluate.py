@@ -30,10 +30,12 @@ def extract_feature(file_name):
     tonnetz = np.mean(librosa.feature.tonnetz(y=librosa.effects.harmonic(X), sr=sample_rate).T, axis=0)
     return mfccs, chroma, mel, contrast, tonnetz
 
+
 def convert_time(seconds):
     m, s = divmod(seconds, 60)
     h, m = divmod(m, 60)
     return "%02d:%02d" % (m, s)
+
 
 if __name__ == "__main__":
     features, video_indexes = parse_audio_files('./', ['tmp'])
@@ -68,9 +70,15 @@ if __name__ == "__main__":
         y_pred = sess.run(tf.argmax(y_, 1), feed_dict={X: features})
         tensor = [int(x) for x in str(y_pred)[1:-1].split(' ')]
         index = 0
+        video_parts = set()
         for x in tensor:
             if x == 1:
                 video_part = video_indexes[index]
-                wrench_time = convert_time(video_part * 3)
-                print("time: ", wrench_time)
+                if video_part - 1 in video_parts:
+                    video_parts.remove(video_part - 1)
+                video_parts.add(video_part)
             index += 1
+
+        for video_part in video_parts:
+            wrench_time = convert_time(video_part * 3)
+            print("time: ", wrench_time)

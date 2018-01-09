@@ -20,13 +20,5 @@ To train a model, start `train.py`. It expects a directory `dataset` in the same
 
 ### Todos
 
- - Experiment with neural network architecture (reduce number of false positives)
- - Check the case when there are multiple sound event detections one after another
+ - Experiment with different neural network architectures 
 
-License
-----
-
-MIT
-
-
-**Free Software, Hell Yeah!**

@@ -10,5 +10,5 @@ echo "Video prepared."
 rm video.mp4
 cd ..
 echo "Searching for the sound event.."
-python evaluate.py
+python -W ignore evaluate.py
 rm -rf tmp
