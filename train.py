@@ -8,7 +8,8 @@ from librosa import display
 
 import tensorflow as tf
 from sklearn.metrics import precision_recall_fscore_support
-
+from tqdm import tqdm, trange
+from sklearn.metrics import roc_curve, auc
 # constants for plots
 
 # plt.style.use('ggplot')
@@ -121,6 +122,24 @@ def one_hot_encode(labels):
     return one_hot_encode
 
 
+def plot_roc(y_dec, pred):
+    fpr, tpr, thresholds = roc_curve(y_dec, pred)
+    roc_auc = auc(fpr, tpr)
+
+    plt.figure()
+    lw = 2
+    plt.plot(fpr, tpr, color='darkorange',
+             lw=lw, label='ROC curve (area = %0.2f)' % roc_auc)
+    plt.plot([0, 1], [0, 1], color='navy', lw=lw, linestyle='--')
+    plt.xlim([0.0, 1.0])
+    plt.ylim([0.0, 1.05])
+    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate')
+    plt.title('Receiver operating characteristic for the neural network')
+    plt.legend(loc="lower right")
+    plt.show()
+
+
 parent_dir = './'
 
 sub_dirs = ['dataset']
@@ -180,15 +199,17 @@ y_true, y_pred = None, None
 i = 0
 with tf.Session() as sess:
     sess.run(init)
-    for epoch in range(training_epochs):
-        print("epoch: ", i)
+    for epoch in tqdm(trange(training_epochs)):
         _, cost = sess.run([optimizer, cost_function], feed_dict={X: train_x, Y: train_y})
         cost_history = np.append(cost_history, cost)
-        i += 1
     y_pred = sess.run(tf.argmax(y_, 1), feed_dict={X: test_x})
     y_true = sess.run(tf.argmax(test_y, 1))
+    y_dec = sess.run(y_, feed_dict={X: test_x})
+    y_dec = y_dec[:, 1] / y_dec[:, 0]
     save_path = saver.save(sess, "./model/model_wrench.ckpt")
     print("Model saved in file: %s" % save_path)
+
+plot_roc(y_true, y_dec)
 
 fig = plt.figure(figsize=(10, 8))
 plt.plot(cost_history)

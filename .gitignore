@@ -1,4 +1,5 @@
 .idea/
+model/
 dataset/
 venv35/
-timesheet.txt
+timesheet-audio.txt
