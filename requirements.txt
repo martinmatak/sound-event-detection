@@ -53,3 +53,4 @@ tensorflow-tensorboard==0.4.0rc3
 urllib3==1.22
 virtualenv==15.1.0
 Werkzeug==0.13
+tqdm==4.19.5
