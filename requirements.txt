@@ -50,7 +50,7 @@ six==1.11.0
 tabulate==0.8.2
 tensorflow==1.12.2
 tensorflow-tensorboard==0.4.0rc3
-urllib3==1.22
+urllib3==1.24.2
 virtualenv==15.1.0
 Werkzeug==0.13
 tqdm==4.19.5
