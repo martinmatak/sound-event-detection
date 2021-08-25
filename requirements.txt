@@ -48,7 +48,7 @@ scikit-learn==0.19.1
 scipy==1.0.0
 six==1.11.0
 tabulate==0.8.2
-tensorflow==1.12.2
+tensorflow==2.5.1
 tensorflow-tensorboard==0.4.0rc3
 urllib3==1.24.2
 virtualenv==15.1.0
