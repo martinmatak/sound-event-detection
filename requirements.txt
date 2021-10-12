@@ -30,7 +30,7 @@ mock==2.0.0
 numba==0.36.2
 numpy==1.13.3
 olefile==0.44
-opencv-python==3.3.0.10
+opencv-python==3.3.1.11
 pathlib2==2.3.0
 pbr==3.1.1
 Pillow==6.2.0
