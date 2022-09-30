@@ -18,7 +18,7 @@ h5py==2.7.1
 html5lib==0.9999999
 idna==2.6
 imageio==2.2.0
-joblib==0.11
+joblib==1.2.0
 Keras==2.1.2
 keras-resnet==0.0.8
 librosa==0.5.1
